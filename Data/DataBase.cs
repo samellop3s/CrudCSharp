@@ -1,12 +1,11 @@
 using Microsoft.Data.Sqlite;
 
-namespace CrudSimples.Data
+namespace CrudSimples.Data;
+
+public class Database
 {
-    public class Database
+    public static SqliteConnection GetConnection()
     {
-        public static SqliteConnection GetConnection()
-            {
-            return new SqliteConnection("Data Soucer=crud.db");
-        }
+        return new SqliteConnection("Data Source=crud.db");
     }
 }
