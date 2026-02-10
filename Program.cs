@@ -7,7 +7,7 @@ DbInitializer.Init(); // ⚠️ ISSO PRECISA EXECUTAR PRIMEIRO
 var service = new UsuarioService();
 
 // CREATE
-service.Criar(new Usuario
+service.Criar(new Usuarios
 {
     Nome = "Samuel",
     Email = "samuel@email.com"

@@ -7,23 +7,23 @@ namespace CrudSimples.Services;
 
 public class UsuarioService
 {
-    public void Criar(Usuario usuario)
+    public void Criar(Usuarios usuario)
     {
         using var con = Database.GetConnection();
         con.Open();
 
         var cmd = con.CreateCommand();
         cmd.CommandText =
-            "INSERT INTO USUARIO (nome, Email) VALUES (@nome, @email)";
+            "INSERT INTO Usuarios (nome, Email) VALUES (@nome, @email)";
         cmd.Parameters.AddWithValue("@nome", usuario.Nome);
         cmd.Parameters.AddWithValue("@email", usuario.Email);
 
         cmd.ExecuteNonQuery();
     }
     // READ
-    public List<Usuario> Listar()
+    public List<Usuarios> Listar()
     {
-        var usuarios = new List<Usuario>();
+        var usuarios = new List<Usuarios>();
 
         using var con = Database.GetConnection();
         con.Open();
@@ -34,7 +34,7 @@ public class UsuarioService
         using var reader = cmd.ExecuteReader();
         while (reader.Read())
         {
-            usuarios.Add(new Usuario
+            usuarios.Add(new Usuarios
             {
                 Id = reader.GetInt32(0),
                 Nome = reader.GetString(1),
@@ -47,7 +47,7 @@ public class UsuarioService
 
     // UPDATE
 
-    public void Atualizar(Usuario usuario)
+    public void Atualizar(Usuarios usuario)
     {
         using var con = Database.GetConnection();
         con.Open();
