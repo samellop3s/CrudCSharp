@@ -11,7 +11,7 @@ public static class DbInitializer
 
         var cmd = con.CreateCommand();
         cmd.CommandText = """
-            CREATE TABLE IF NOT EXISTS Usuario (
+            CREATE TABLE IF NOT EXISTS Usuarios (
                 Id INTEGER PRIMARY KEY AUTOINCREMENT,
                 Nome TEXT,
                 Email TEXT
